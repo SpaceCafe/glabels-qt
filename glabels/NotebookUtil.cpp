@@ -53,7 +53,7 @@ namespace glabels
 			notebook->setCurrentIndex( iTab );
 			window->layout()->invalidate();
 		}
-		window->hide();
+		// window->hide();
 
 		notebook->setCurrentIndex( iTabSaved );
 	}
