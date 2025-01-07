@@ -24,6 +24,7 @@ matrix:
     sudo: require
     env:
       - QMAKE_PATH=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
+      - ZINT_VERSION=2.13.0
     
     install:
       - sudo apt-get -y install qtbase5-dev libqt5svg5-dev qttools5-dev
@@ -31,7 +32,7 @@ matrix:
       - sudo apt-get -y install pkgconf libqrencode-dev
       - sudo apt-get -y install barcode
       # Install zint from source
-      - wget https://downloads.sourceforge.net/project/zint/zint/2.12.0/zint-2.12.0-src.tar.gz && tar xzf zint-2.12.0-src.tar.gz && ( cd zint-2.12.0-src && mkdir build && cd build && cmake .. && make && sudo make install )
+      - wget https://downloads.sourceforge.net/project/zint/zint/$ZINT_VERSION/zint-$ZINT_VERSION-src.tar.gz && tar xzf zint-$ZINT_VERSION-src.tar.gz && ( cd zint-$ZINT_VERSION-src && mkdir build && cd build && cmake .. && make && sudo make install )
       - export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
     before_script:
